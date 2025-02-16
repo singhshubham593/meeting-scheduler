@@ -8,8 +8,9 @@ import { Button } from "./ui/button";
 import useFetch from "@/hooks/use-fetch";
 import { useRouter } from "next/navigation";
 import { createEvent } from "@/actions/events";
+import { Textarea } from "@/components/ui/textarea";
 
-const EventForm = ({onSubmitForm}) => {
+const EventForm = ({onSubmitForm, initialData = {} }) => {
     const router = useRouter();
     const{
         register,
@@ -19,8 +20,10 @@ const EventForm = ({onSubmitForm}) => {
     } = useForm({
         resolver: zodResolver(eventSchema),
         defaultValues:{
-            durations:30,
-            isPrivate:true,
+            title: initialData.title || "",
+            description: initialData.description || "",
+            duration: initialData.duration || 30,
+            isPrivate: initialData.isPrivate ?? true,
         },
     });
     const { loading, error, fn: fnCreateEvent }=useFetch(createEvent);
@@ -54,7 +57,11 @@ const EventForm = ({onSubmitForm}) => {
             >
             Event description hai
         </label>
-        <Input id="description" {...register("description")}/>
+        <Textarea
+          {...register("description")}
+          id="description"
+          className="mt-1"
+        />
         {errors.description && ( 
             <p className="text-red-500 text-sm mt-1">{errors.description.message}</p>
         )}

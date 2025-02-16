@@ -16,8 +16,8 @@ const Events = async () => {
   if (events.length === 0) {
     return <p>you haven&apos;t create any events yet.</p>;
   }
-  return <div>
-    {events.map((event)=>(
+  return <div className="grid gap-4 grid-cols-1 lg:grid-cols-2">
+    {events?.map((event)=>(
       <EventCard key={event.id} event={event} username={username}/>
     ))}
   </div>;

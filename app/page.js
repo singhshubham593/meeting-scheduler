@@ -94,6 +94,15 @@ export default function Home() {
           })}
         </div>
       </div>
+
+      {/* Testimonials Section */}
+      <div className="mb-24">
+        <h2 className="text-3xl font-bold text-center mb-12 text-blue-600">
+          What Our Users Say
+        </h2>
+        <Testimonial />
+      </div>
+
       <div className="mb-24">
         <h2 className="text-3xl font-bold text-center mb-12 text-blue-600">
           How It Works

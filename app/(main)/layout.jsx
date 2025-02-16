@@ -18,7 +18,7 @@ const navItems = [
     const { isLoaded }=useUser();
    return (
         <>
-             {!isLoaded && <BarLoader width={"100%"} color="#36d7b7" />}
+      {!isLoaded && <BarLoader width={"100%"} color="#36d7b7" />}
       <div className="flex flex-col h-screen bg-blue-50 md:flex-row">
         {/* Sidebar for medium screens and up */}
         <aside className="hidden md:block w-64 bg-white">
